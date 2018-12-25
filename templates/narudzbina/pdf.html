@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Prodavnica</h1>
+  <p>Predracun br. {{narudzbina.id}}</br>
+    <span class="secondary">
+        {{narudzbina.kreirano|date:'M d, Y'}}
+    </span>
+  </p>
+  <h3>Uplatilac:</h3>
+  <p>
+      {{narudzbina.ime}} {{narudzbina.prezime}}
+      {{narudzbina.email}}<br>
+      {{narudzbina.adresa}}<br>
+      {{narudzbina.postanski_broj}} {{narudzbina.mesto}}
+  </p>
+  <h3>Kupljeni predmeti</h3>
+  <table>
+      <thead>
+          <tr>
+              <th>Proizvod</th>
+              <th>Cena</th>
+              <th>Kolicina</th>
+              <th>Ukupno</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for predmet in narudzbina.predmeti.all %}
+              <tr class="row{% cycle "1" "2" %}">
+                  <td>{{predmet.proizvod.ime}}</td>
+                  <td class="num">RSD{{predmet.cena}}</td>
+                  <td class="num">{{predmet.kolicina}}</td>
+                  <td class="num">RSD{{predmet.dobij_cenu}}</td>
+              </tr>
+          {% endfor %}
+              <tr class="subtotal">
+                <td colspan="3">Popust</td>
+                <td class="num">RSD{{narudzbina.dobij_popust|floatformat:'2'}}</td>
+              </tr>
+              <tr class="total">
+                <td colspan="3">Ukupno</td>
+                <td class="num">RSD{{narudzbina.dobij_punu_cenu_posle_popusta|floatformat:'2'}}</td>
+              </tr>
+      </tbody>
+  </table>
+  <span class="{% if narudzbina.placeno %}paid{% else %}pending{% endif %}">
+    {% if narudzbina.placeno %}Placeno{% else %}Nije placeno{% endif %}
+  </span>
+</body>
+</html>

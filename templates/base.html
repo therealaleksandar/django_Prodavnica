@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+  <title>{% block title %}
+    {% trans 'Prodavnica' %}
+    {% endblock title %}</title>
+</head>
+
+<body>
+  <div id="header">
+    <a class='logo' href="/">{% trans 'Prodavnica' %}</a>
+    {% get_available_languages as LANGUAGES %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_language_info_list for LANGUAGES as langs %}
+    <div class="languages">
+      <p>{% trans 'Jezici' %}:</p>
+      <ul class="languages">
+        <li>
+        {% for lang in langs %}
+          <a href="/{{lang.code}}/"
+          {% if lang.code == LANGUAGE_CODE %}
+            class='button'
+          {% endif %}
+             >{{lang.name_local}}</a>
+        {% endfor %}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="subheader">
+    <div class="cart">
+      {% with svi_predmeti=korpa|length %}
+        {% if svi_predmeti > 0 %}
+          {% trans 'Vasa korpa' %}:
+          <a href="{% url 'korpa:korpa_detaljno' %}">
+            {% blocktrans with svi_predmeti_mnozina=svi_predmeti|pluralize:'a' puna_cena=korpa.dobij_punu_cenu %}
+              {{svi_predmeti}} predmet{{svi_predmeti_mnozina}},
+              {{puna_cena}} RSD
+            {% endblocktrans %}
+          </a>
+        {% else %}
+          {% trans 'Vasa korpa je prazna.' %}
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+  <div id="content">
+    {% block content %}
+    {% endblock content %}
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-25 19:31+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: korpa/forms.py:8 templates/korpa/detaljno.html:15
+msgid "Kolicina"
+msgstr ""
+
+#: kuponi/forms.py:6 templates/korpa/detaljno.html:50
+msgid "Kupon"
+msgstr ""
+
+#: kuponi/urls.py:8
+msgid "dodaj/"
+msgstr ""
+
+#: placanje/urls.py:8
+msgid "proces/"
+msgstr ""
+
+#: placanje/urls.py:9
+msgid "gotovo/"
+msgstr ""
+
+#: placanje/urls.py:10
+msgid "otkazano/"
+msgstr ""
+
+#: projekat/settings.py:156
+msgid "Serbian Latin"
+msgstr "Srpski"
+
+#: projekat/settings.py:157
+msgid "English"
+msgstr "Engleski"
+
+#: projekat/urls.py:24
+msgid "admin/"
+msgstr ""
+
+#: projekat/urls.py:25
+msgid "korpa/"
+msgstr ""
+
+#: projekat/urls.py:26
+msgid "narudzbina/"
+msgstr ""
+
+#: projekat/urls.py:27
+msgid "placanje/"
+msgstr ""
+
+#: projekat/urls.py:28
+msgid "kuponi/"
+msgstr ""
+
+#: templates/base.html:10 templates/base.html:16
+#: templates/prodavnica/proizvod/lista.html:6
+msgid "Prodavnica"
+msgstr ""
+
+#: templates/base.html:21
+msgid "Jezici"
+msgstr ""
+
+#: templates/base.html:39 templates/korpa/detaljno.html:5
+#: templates/korpa/detaljno.html:9
+msgid "Vasa korpa"
+msgstr ""
+
+#: templates/base.html:41
+#, python-format
+msgid ""
+"\n"
+"              %(svi_predmeti)s predmet%(svi_predmeti_mnozina)s,\n"
+"              %(puna_cena)s RSD\n"
+"            "
+msgstr ""
+
+#: templates/base.html:47
+msgid "Vasa korpa je prazna."
+msgstr ""
+
+#: templates/korpa/detaljno.html:13
+msgid "Slika"
+msgstr ""
+
+#: templates/korpa/detaljno.html:14
+msgid "Proizvod"
+msgstr ""
+
+#: templates/korpa/detaljno.html:16 templates/korpa/detaljno.html:40
+msgid "Ukloni"
+msgstr ""
+
+#: templates/korpa/detaljno.html:17
+msgid "Cena po jedinici"
+msgstr ""
+
+#: templates/korpa/detaljno.html:18
+msgid "Cena"
+msgstr ""
+
+#: templates/korpa/detaljno.html:35
+msgid "Azuriraj"
+msgstr ""
+
+#: templates/korpa/detaljno.html:55
+msgid "Popust"
+msgstr ""
+
+#: templates/korpa/detaljno.html:62 templates/narudzbina/kreiraj.html:29
+msgid "Ukupno"
+msgstr ""
+
+#: templates/korpa/detaljno.html:68
+msgid "Unesite kod kupona"
+msgstr ""
+
+#: templates/korpa/detaljno.html:72
+msgid "Potvrdi"
+msgstr ""
+
+#: templates/korpa/detaljno.html:75
+msgid "Nastavite sa kupovinom"
+msgstr ""
+
+#: templates/korpa/detaljno.html:76
+msgid "Idi na kasu"
+msgstr ""
+
+#: templates/korpa/detaljno.html:80
+#: templates/prodavnica/proizvod/detaljno.html:24
+msgid "Preporuceni proizvodi za vas"
+msgstr ""
+
+#: templates/narudzbina/kreiraj.html:5 templates/narudzbina/kreiraj.html:10
+msgid "Naplata"
+msgstr ""
+
+#: templates/narudzbina/kreiraj.html:12
+msgid "Vasa narudzbina"
+msgstr ""
+
+#: templates/narudzbina/kreiraj.html:34
+msgid "Naruci"
+msgstr ""
+
+#: templates/placanje/gotovo.html:5
+msgid "Vasa uplata je uspela"
+msgstr ""
+
+#: templates/placanje/gotovo.html:6
+msgid "Vasa uplata je uspesno primljena"
+msgstr ""
+
+#: templates/placanje/otkazano.html:4
+msgid "Vasa uplata nije prosla"
+msgstr ""
+
+#: templates/placanje/otkazano.html:5
+msgid ""
+"Nazalost, doslo je do problema prilikom vase uplate i ona nije izvrsena."
+msgstr ""
+
+#: templates/placanje/proces.html:5 templates/placanje/proces.html:9
+msgid "Placanje kreditnom karticom"
+msgstr ""
+
+#: templates/placanje/proces.html:11
+msgid "Broj Kartice"
+msgstr ""
+
+#: templates/placanje/proces.html:15
+msgid "Datum isteka kartice"
+msgstr ""
+
+#: templates/prodavnica/proizvod/detaljno.html:19
+msgid "Dodaj u korpu"
+msgstr ""
+
+#: templates/prodavnica/proizvod/lista.html:11
+msgid "Kategorije"
+msgstr ""
+
+#: templates/prodavnica/proizvod/lista.html:14
+msgid "Svi"
+msgstr ""
+
+#: templates/prodavnica/proizvod/lista.html:28
+msgid "Proizvodi"
+msgstr ""

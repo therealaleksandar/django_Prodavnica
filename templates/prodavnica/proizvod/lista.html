@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% load static %}
+{% block title %}
+{% if kategorija %}{{kategorija.ime}}{% else %}{% trans 'Prodavnica' %}{% endif %}
+{% endblock %}
+
+{% block content %}
+<div id="sidebar">
+  <h3>{% trans 'Kategorije' %}</h3>
+  <ul>
+    <li {% if not kategorija %} class='selected' {% endif %}>
+      <a href="{% url 'prodavnica:proizvodi_lista' %}">{% trans 'Svi' %}</a>
+    </li>
+    {% for k in kategorije %}
+    <li {% if kategorija.slug == k.slug %} class='selected' {% endif %}>
+      <a href="{{k.get_absolute_url}}">{{k.ime}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<div id="main" class="product-list">
+  <h1>
+    {% if kategorija %}
+    {{kategorija.ime}}
+    {% else %}
+    {% trans 'Proizvodi' %}
+    {% endif %}
+  </h1>
+  {% for proizvod in proizvodi %}
+  <div class="item">
+    <a href="{{proizvod.get_absolute_url}}">
+      <img src="{{proizvod.slika.url}}" alt="">
+    </a>
+    <p><a href="{{proizvod.get_absolute_url}}">{{proizvod.ime}}</a>
+    </p>
+    RSD {{proizvod.cena}}
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

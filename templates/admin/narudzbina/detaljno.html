@@ -1,0 +1,90 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock extrastyle %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url "admin:index" %}">Home</a> &rsaquo;
+        <a href="{% url "admin:narudzbina_narudzbina_changelist" %}">Narudzbine</a>
+        &rsaquo;
+        <a href="{% url "admin:narudzbina_narudzbina_change" narudzbina.id %}">Narudzbina</a>
+        &rsaquo; Detaljno
+    </div>
+{% endblock %}
+{% block content %}
+    <h1>Narudzbina {{narudzbina.id}}</h1>
+    <ul class="object-tools">
+    <li>
+        <a href="#" onclick="window.print();">Odstampaj narudzbinu</a>
+    </li>
+    </ul>
+    <table>
+    <tr>
+        <th>Kreirano</th>
+        <td>{{ narudzbina.kreirano }}</td>
+    </tr>
+    <tr>
+        <th>Kupac</th>
+        <td>{{narudzbina.ime}} {{narudzbina.prezime}}</td>
+    </tr>
+    <tr>
+        <th>E-mail</th>
+        <td><a href="mailto:{{ narudzbina.email }}">{{ narudzbina.email }}</a></td>
+    </tr>
+    <tr>
+        <th>Adresa</th>
+        <td>{{ narudzbina.adresa }}, {{ narudzbina.postanski_broj }} {{ narudzbina.mesto }}</td>
+    </tr>
+    <tr>
+        <th>Ukupno</th>
+        <td>RSD{{narudzbina.dobij_punu_cenu}}</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td>
+        {% if narudzbina.placeno %}
+            Placeno
+        {% else %}
+            Na cekanju
+        {% endif %}
+        </td>
+    </tr>
+    </table>
+
+    <div class="module">
+    <div class="tabular inline-related last-related">
+        <table>
+        <h2>Kupljeni predmeti</h2>
+        <thead>
+            <tr>
+            <th>Proizvod</th>
+            <th>Cena</th>
+            <th>Kolicina</th>
+            <th>Ukupno</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for predmet in narudzbina.predmeti.all %}
+            <tr class="row{% cycle "1" "2" %}">
+                <td>{{ predmet.proizvod.ime }}</td>
+                <td class="num">RSD{{ predmet.cena }}</td>
+                <td class="num">{{ predmet.kolicina }}</td>
+                <td class="num">RSD{{ predmet.dobij_cenu }}</td>
+            </tr>
+            {% endfor %}
+              <tr class="subtotal">
+                <td colspan="3">Popust</td>
+                <td class="num">RSD{{narudzbina.dobij_popust|floatformat:'2'}}</td>
+              </tr>
+              <tr class="total">
+                <td colspan="3">Ukupno</td>
+                <td class="num">RSD{{narudzbina.dobij_punu_cenu_posle_popusta|floatformat:'2'}}</td>
+              </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock content %}

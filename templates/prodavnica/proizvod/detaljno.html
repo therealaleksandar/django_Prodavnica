@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{{proizvod.ime}}
+{% endblock title %}
+
+
+{% block content %}
+<div class="product-detail">
+    <img src="{{proizvod.slika.url}}" alt="">
+    <h1>{{proizvod.ime}}</h1>
+    <h2><a href="{{proizvod.kategorija.get_absolute_url}}">{{proizvod.kategorija}}</a></h2>
+    <p class="price">RSD {{proizvod.cena}}</p>
+    <form action="{% url 'korpa:korpa_dodaj' proizvod.id %}" method="post">
+        {% csrf_token %}
+        {{korpa_proizvod_forma}}
+        <input type="submit" value="{% trans 'Dodaj u korpu' %}">
+    </form>
+    {{proizvod.opis|linebreaks}}
+    {% if preporuceni_proizvodi %}
+        <div class="recommendations">
+            <h3>{% trans 'Preporuceni proizvodi za vas' %}:</h3>
+            {% for proizvod in preporuceni_proizvodi %}
+            <div class="item">
+                <a href="{{proizvod.get_absolute_url}}">
+                    <img src="{{proizvod.slika.url}}" alt="">
+                </a>
+                <p><a href="{{proizvod.get_absolute_url}}">{{proizvod.ime}}</a></p>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

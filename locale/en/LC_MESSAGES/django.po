@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-25 19:31+0100\n"
+"PO-Revision-Date: 2018-12-25 18:31+0000\n"
+"Last-Translator: b'  <>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.0\n"
+
+#: korpa/forms.py:8 templates/korpa/detaljno.html:15
+msgid "Kolicina"
+msgstr "Quantity"
+
+#: kuponi/forms.py:6 templates/korpa/detaljno.html:50
+msgid "Kupon"
+msgstr "Coupon"
+
+#: kuponi/urls.py:8
+msgid "dodaj/"
+msgstr "add/"
+
+#: placanje/urls.py:8
+msgid "proces/"
+msgstr "process/"
+
+#: placanje/urls.py:9
+msgid "gotovo/"
+msgstr "done/"
+
+#: placanje/urls.py:10
+msgid "otkazano/"
+msgstr "canceled/"
+
+#: projekat/settings.py:156
+msgid "Serbian Latin"
+msgstr "Serbian"
+
+#: projekat/settings.py:157
+msgid "English"
+msgstr "English"
+
+#: projekat/urls.py:24
+msgid "admin/"
+msgstr "admin/"
+
+#: projekat/urls.py:25
+msgid "korpa/"
+msgstr "cart/"
+
+#: projekat/urls.py:26
+msgid "narudzbina/"
+msgstr "order/"
+
+#: projekat/urls.py:27
+msgid "placanje/"
+msgstr "payment/"
+
+#: projekat/urls.py:28
+msgid "kuponi/"
+msgstr "coupons/"
+
+#: templates/base.html:10 templates/base.html:16
+#: templates/prodavnica/proizvod/lista.html:6
+msgid "Prodavnica"
+msgstr "Shop"
+
+#: templates/base.html:21
+msgid "Jezici"
+msgstr "Languages"
+
+#: templates/base.html:39 templates/korpa/detaljno.html:5
+#: templates/korpa/detaljno.html:9
+msgid "Vasa korpa"
+msgstr "Your cart"
+
+#: templates/base.html:41
+#, python-format
+msgid ""
+"\n"
+"              %(svi_predmeti)s predmet%(svi_predmeti_mnozina)s,\n"
+"              %(puna_cena)s RSD\n"
+"            "
+msgstr ""
+"\n"
+"%(svi_predmeti)s item%(svi_predmeti_mnozina)s,\n"
+"%(puna_cena)s RSD"
+
+#: templates/base.html:47
+msgid "Vasa korpa je prazna."
+msgstr "Your cart is empty."
+
+#: templates/korpa/detaljno.html:13
+msgid "Slika"
+msgstr "Image"
+
+#: templates/korpa/detaljno.html:14
+msgid "Proizvod"
+msgstr "Product"
+
+#: templates/korpa/detaljno.html:16 templates/korpa/detaljno.html:40
+msgid "Ukloni"
+msgstr "Remove"
+
+#: templates/korpa/detaljno.html:17
+msgid "Cena po jedinici"
+msgstr "Unit price"
+
+#: templates/korpa/detaljno.html:18
+msgid "Cena"
+msgstr "Price"
+
+#: templates/korpa/detaljno.html:35
+msgid "Azuriraj"
+msgstr "Update"
+
+#: templates/korpa/detaljno.html:55
+msgid "Popust"
+msgstr "Discount"
+
+#: templates/korpa/detaljno.html:62 templates/narudzbina/kreiraj.html:29
+msgid "Ukupno"
+msgstr "Total"
+
+#: templates/korpa/detaljno.html:68
+msgid "Unesite kod kupona"
+msgstr "Enter your coupon code"
+
+#: templates/korpa/detaljno.html:72
+msgid "Potvrdi"
+msgstr "Place order"
+
+#: templates/korpa/detaljno.html:75
+msgid "Nastavite sa kupovinom"
+msgstr "Continue shopping"
+
+#: templates/korpa/detaljno.html:76
+msgid "Idi na kasu"
+msgstr "Check out"
+
+#: templates/korpa/detaljno.html:80
+#: templates/prodavnica/proizvod/detaljno.html:24
+msgid "Preporuceni proizvodi za vas"
+msgstr "Recommended products for you"
+
+#: templates/narudzbina/kreiraj.html:5 templates/narudzbina/kreiraj.html:10
+msgid "Naplata"
+msgstr "Payment"
+
+#: templates/narudzbina/kreiraj.html:12
+msgid "Vasa narudzbina"
+msgstr "Your order"
+
+#: templates/narudzbina/kreiraj.html:34
+msgid "Naruci"
+msgstr "Order"
+
+#: templates/placanje/gotovo.html:5
+msgid "Vasa uplata je uspela"
+msgstr "Your payment has been successful"
+
+#: templates/placanje/gotovo.html:6
+msgid "Vasa uplata je uspesno primljena"
+msgstr "Your payment has been successful"
+
+#: templates/placanje/otkazano.html:4
+msgid "Vasa uplata nije prosla"
+msgstr "Your payment failed"
+
+#: templates/placanje/otkazano.html:5
+msgid ""
+"Nazalost, doslo je do problema prilikom vase uplate i ona nije izvrsena."
+msgstr "Unfortunately there was a problem with your payment."
+
+#: templates/placanje/proces.html:5 templates/placanje/proces.html:9
+msgid "Placanje kreditnom karticom"
+msgstr "Pay with credit card"
+
+#: templates/placanje/proces.html:11
+msgid "Broj Kartice"
+msgstr "Credit card number"
+
+#: templates/placanje/proces.html:15
+msgid "Datum isteka kartice"
+msgstr "Credit card expiration date"
+
+#: templates/prodavnica/proizvod/detaljno.html:19
+msgid "Dodaj u korpu"
+msgstr "Add to cart"
+
+#: templates/prodavnica/proizvod/lista.html:11
+msgid "Kategorije"
+msgstr "Categories"
+
+#: templates/prodavnica/proizvod/lista.html:14
+msgid "Svi"
+msgstr "All"
+
+#: templates/prodavnica/proizvod/lista.html:28
+msgid "Proizvodi"
+msgstr "Products"

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Vasa korpa' %}
+{% endblock title %}
+
+{% block content %}
+    <h1>{% trans 'Vasa korpa' %}</h2>
+    <table class="cart">
+        <thead>
+            <tr>
+                <th>{% trans 'Slika' %}</th>
+                <th>{% trans 'Proizvod' %}</th>
+                <th>{% trans 'Kolicina' %}</th>
+                <th>{% trans 'Ukloni' %}</th>
+                <th>{% trans 'Cena po jedinici' %}</th>
+                <th>{% trans 'Cena' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for predmet in korpa %}
+            {% with proizvod=predmet.proizvod %}
+            <tr>
+                <td>
+                    <a href="{{proizvod.get_absolute_url}}">
+                        <img src="{{proizvod.slika.url}}" alt="" srcset="">
+                    </a>
+                </td>
+                <td><a href="{{proizvod.get_absolute_url}}">{{proizvod.ime}}</td></a>
+                <td>
+                    <form action="{% url 'korpa:korpa_dodaj' proizvod.id %}" method="post">
+                        {{predmet.azuriraj_kolicinu_forma.kolicina}}
+                        {{predmet.azuriraj_kolicinu_forma.azuriraj}}
+                        <input type="submit" value="{% trans 'Azuriraj' %}">
+                        {% csrf_token %}
+                    </form>
+                </td>
+                <td>
+                    <a href="{% url 'korpa:korpa_ukloni' proizvod.id %}">{% trans 'Ukloni' %}</a>
+                </td>
+                <td class="num">{{predmet.cena}}</td>
+                <td class="num">{{predmet.puna_cena}}</td>
+            </tr>
+            {% endwith %}
+        {% endfor %}
+
+        {% if korpa.kupon %}
+            <tr class="subtotal">
+                <td>{% trans 'Kupon' %}:</td>
+                <td colspan="4"></td>
+                <td class="num">{{korpa.kupon.kod}}</td>
+            </tr>
+            <tr >
+                <td>{% trans 'Popust' %} ({{korpa.kupon.popust}}%):</td>
+                <td colspan="4"></td>
+                <td class="num neg">- {{korpa.dobij_popust|floatformat:'2'}} RSD </td>
+            </tr>
+        {% endif %}
+
+            <tr class="total">
+                <td>{% trans 'Ukupno' %}:</td>
+                <td colspan="4"></td>
+                <td class="num">RSD {{korpa.dobij_punu_cenu_posle_popusta|floatformat:'2'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>{% trans 'Unesite kod kupona' %}:</p>
+    <form action="{% url 'kuponi:dodaj' %}" method="post">
+        {{kupon_dodaj_forma}}
+        {% csrf_token %}
+        <input type="submit" value="{% trans 'Potvrdi' %}">
+    </form>
+    <p class="text-right">
+        <a href="{% url 'prodavnica:proizvodi_lista' %}" class="button light">{% trans 'Nastavite sa kupovinom' %}</a>
+        <a href="{% url 'narudzbina:narudzbina_dodaj' %}" class="button">{% trans 'Idi na kasu' %}</a>
+    </p>
+    {% if preporuceni_proizvodi %}
+        <div class="recommendations cart">
+            <h3>{% trans 'Preporuceni proizvodi za vas' %}:</h3>
+            {% for proizvod in preporuceni_proizvodi %}
+            <div class="item">
+                <a href="{{proizvod.get_absolute_url}}">
+                    <img src="{{proizvod.slika.url}}" alt="">
+                </a>
+                <p><a href="{{proizvod.get_absolute_url}}">{{proizvod.ime}}</a></p>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock content %}
